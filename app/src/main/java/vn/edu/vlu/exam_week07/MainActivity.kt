@@ -1,5 +1,6 @@
 package vn.edu.vlu.exam_week07
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Patterns
@@ -56,6 +57,14 @@ class MainActivity : AppCompatActivity() {
             // 4. Dữ liệu hợp lệ
             tvStatus.setTextColor(Color.parseColor("#2E7D32"))
             tvStatus.text = "Xác thực thành công!"
+
+            // 4. Dữ liệu hợp lệ -> Chuyển sang ProfileActivity bằng Intent
+            tvStatus.setTextColor(Color.parseColor("#2E7D32"))
+            tvStatus.text = "Xác thực thành công!"
+
+            val intent = Intent(this@MainActivity, ProfileActivity::class.java)
+            intent.putExtra("EXTRA_EMAIL", email)
+            startActivity(intent)
         }
     }
 }
