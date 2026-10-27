@@ -5,23 +5,47 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="16dp">
 
-    <!-- Tiêu đề -->
-    <TextView
-        android:id="@+id/tvTitle"
+    <!-- Guideline lề trái linh hoạt (8% chiều rộng màn hình) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <!-- Guideline lề phải linh hoạt (92% chiều rộng màn hình) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+    <!-- Guideline ngang đặt tiêu đề (15% chiều cao màn hình) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <!-- Tiêu đề hệ thống neo vào Guideline dọc -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="ĐĂNG NHẬP HỆ THỐNG"
+        android:textAlignment="center"
+        android:textColor="#1A365D"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#1A365D"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp" />
+        app:layout_constraintTop_toBottomOf="@id/glTop"
+        app:layout_constraintStart_toStartOf="@id/glStart"
+        app:layout_constraintEnd_toEndOf="@id/glEnd" />
 
-    <!-- Ô nhập Email -->
+    <!-- Ô nhập Email giãn đều giữa 2 Guideline (0dp = MATCH_CONSTRAINT) -->
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="0dp"
@@ -30,9 +54,11 @@
         android:hint="Địa chỉ Email"
         android:inputType="textEmailAddress"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/glEnd"
+        app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+
     <!-- Ô nhập Mật khẩu -->
     <EditText
         android:id="@+id/edtPassword"
@@ -42,30 +68,40 @@
         android:hint="Mật khẩu (ít nhất 6 ký tự)"
         android:inputType="textPassword"
         android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/glEnd"
+        app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/edtEmail" />
-    <!-- Nút Đăng nhập -->
+    <!-- Rào chắn Barrier tự động tính toán đáy của form nhập liệu -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="edtEmail,edtPassword" />
+
+    <!-- Nút Đăng nhập neo dưới Barrier và giãn đều 2 Guideline -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="ĐĂNG NHẬP"
-        app:layout_constraintTop_toBottomOf="@id/edtPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp" />
-    <!-- Dòng hiển thị trạng thái kết quả / thông báo lỗi -->
+        app:layout_constraintTop_toBottomOf="@id/barrierForm"
+        app:layout_constraintStart_toStartOf="@id/glStart"
+        app:layout_constraintEnd_toEndOf="@id/glEnd" />
+
+
+    <!-- Dòng hiển thị trạng thái kết quả / báo lỗi -->
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:textColor="#C53030"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="@id/glStart"
+        app:layout_constraintEnd_toEndOf="@id/glEnd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
