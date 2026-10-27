@@ -5,6 +5,89 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:padding="16dp">
+
+    <!-- Guideline dọc biên trái (8% chiều rộng màn hình) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glStartProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <!-- Guideline dọc biên phải (92% chiều rộng màn hình) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glEndProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <!-- Guideline ngang định vị tiêu đề (10% chiều cao màn hình) -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glTopProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+    <!-- Tiêu đề màn hình Profile -->
+    <TextView
+        android:id="@+id/tvProfileTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="THÔNG TIN TÀI KHOẢN"
+        android:textAlignment="center"
+        android:textColor="#1A365D"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/glTopProfile"
+        app:layout_constraintStart_toStartOf="@id/glStartProfile"
+        app:layout_constraintEnd_toEndOf="@id/glEndProfile" />
+
+    <!-- Nhãn hiển thị thông tin Email -->
+    <TextView
+        android:id="@+id/tvEmailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Tài khoản đăng nhập:"
+        android:textColor="#718096"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileTitle"
+        app:layout_constraintStart_toStartOf="@id/glStartProfile" />
+
+    <!-- Giá trị Email (nhận từ LoginActivity qua Intent) -->
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Chưa có dữ liệu"
+        android:textColor="#2D3748"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailLabel"
+        app:layout_constraintStart_toStartOf="@id/glStartProfile"
+        app:layout_constraintEnd_toEndOf="@id/glEndProfile" />
+
+    <!-- Rào chắn Barrier đáy khối thông tin tài khoản -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierProfileInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tvEmailLabel,tvUserEmail" />
+
+    <!-- Nút Đăng xuất neo ngay dưới Barrier và giãn đều theo Guideline dọc -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="ĐĂNG XUẤT"
+        app:layout_constraintTop_toBottomOf="@id/barrierProfileInfo"
+        app:layout_constraintStart_toStartOf="@id/glStartProfile"
+        app:layout_constraintEnd_toEndOf="@id/glEndProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
