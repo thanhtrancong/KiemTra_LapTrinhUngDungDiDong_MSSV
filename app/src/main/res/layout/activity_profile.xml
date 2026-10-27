@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:padding="16dp">
+    android:padding="20dp">
 
     <!-- Guideline dọc biên trái (8% chiều rộng màn hình) -->
     <androidx.constraintlayout.widget.Guideline
