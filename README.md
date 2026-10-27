@@ -13,3 +13,6 @@ repos bài lab tuần 07 môn Lập trình ứng dụng di động
 
 ### 2. Xác thực thành công khi dữ liệu hợp lệ
 ![Validation Success](screenshots/cau1_validation_success.png)
+
+## Minh chứng Câu 2
+![Profile Intent](screenshots/cau2_profile_intent.png)
