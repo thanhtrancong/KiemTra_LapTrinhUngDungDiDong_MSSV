@@ -90,4 +90,30 @@
         app:layout_constraintStart_toStartOf="@id/glStartProfile"
         app:layout_constraintEnd_toEndOf="@id/glEndProfile" />
 
+    <!-- Tiêu đề danh sách môn học -->
+    <TextView
+        android:id="@+id/tvListTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="DANH SÁCH MÔN HỌC / KỸ NĂNG"
+        android:textColor="#1A365D"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/barrierProfileInfo"
+        app:layout_constraintStart_toStartOf="@id/glStartProfile"
+        app:layout_constraintEnd_toEndOf="@id/glEndProfile" />
+
+    <!-- Thành phần ListView (Câu 3) -->
+    <ListView
+        android:id="@+id/lvCourses"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvListTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glStartProfile"
+        app:layout_constraintEnd_toEndOf="@id/glEndProfile" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
