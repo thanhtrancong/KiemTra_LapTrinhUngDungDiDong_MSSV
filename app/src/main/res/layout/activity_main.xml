@@ -71,6 +71,7 @@
         app:layout_constraintEnd_toEndOf="@id/glEnd"
         app:layout_constraintStart_toStartOf="@id/glStart"
         app:layout_constraintTop_toBottomOf="@id/edtEmail" />
+
     <!-- Rào chắn Barrier tự động tính toán đáy của form nhập liệu -->
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierForm"

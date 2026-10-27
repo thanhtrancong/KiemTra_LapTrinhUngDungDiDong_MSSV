@@ -54,10 +54,6 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 4. Dữ liệu hợp lệ
-            tvStatus.setTextColor(Color.parseColor("#2E7D32"))
-            tvStatus.text = "Xác thực thành công!"
-
             // 4. Dữ liệu hợp lệ -> Chuyển sang ProfileActivity bằng Intent
             tvStatus.setTextColor(Color.parseColor("#2E7D32"))
             tvStatus.text = "Xác thực thành công!"
